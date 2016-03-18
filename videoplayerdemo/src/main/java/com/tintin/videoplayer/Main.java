@@ -1,9 +1,10 @@
 package com.tintin.videoplayer;
 
-import com.tintin.videoplayer.circlemenu.view.CircleImageView;
-import com.tintin.videoplayer.circlemenu.view.CircleLayout;
-import com.tintin.videoplayer.circlemenu.view.CircleLayout.OnItemClickListener;
-import com.tintin.videoplayer.circlemenu.view.CircleLayout.OnItemSelectedListener;
+import com.tintin.videoplayer.R;
+import com.tintin.videoplayer.view.CircleImageView;
+import com.tintin.videoplayer.view.CircleLayout;
+import com.tintin.videoplayer.view.CircleLayout.OnItemClickListener;
+import com.tintin.videoplayer.view.CircleLayout.OnItemSelectedListener;
 import com.tintin.videoplayer.online.WebVideo;
 import com.tintin.videoplayer.util.AppLog;
 

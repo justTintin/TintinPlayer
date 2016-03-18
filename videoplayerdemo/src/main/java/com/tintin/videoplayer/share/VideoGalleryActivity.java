@@ -256,7 +256,7 @@ public class VideoGalleryActivity extends Activity {
         mPopupWindow.update();
         photos_count = (TextView) foot_popunwindwow.findViewById(R.id.photo_counts);
         deleButton = (Button) foot_popunwindwow.findViewById(R.id.delete_button);
-        deleButton.setOnClickListener(new OnClickListener() {
+        deleButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				deleButton.setEnabled(false);
                 shareButton.setEnabled(false);
@@ -280,7 +280,7 @@ public class VideoGalleryActivity extends Activity {
 			}
 		});
         shareButton = (Button) foot_popunwindwow.findViewById(R.id.share_button);
-        shareButton.setOnClickListener(new OnClickListener() {
+        shareButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if(connectWifi){
 					shareButton.setEnabled(false);
@@ -296,12 +296,12 @@ public class VideoGalleryActivity extends Activity {
 					
 					ContentValues content = new ContentValues(5);
 					content.put(Video.VideoColumns.TITLE, "Share");
-					content.put(Video.VideoColumns.SIZE, file.length());
+					content.put(MediaStore.Video.VideoColumns.SIZE, file.length());
 					content.put(Video.VideoColumns.DATE_ADDED,System.currentTimeMillis() / 1000); 
 					content.put(Video.Media.MIME_TYPE, "video/mp4");
-					content.put(Video.Media.DATA, videoPath);
+					content.put(MediaStore.Video.Media.DATA, videoPath);
 					ContentResolver contentResolver = getContentResolver();
-					Uri base = Video.Media.EXTERNAL_CONTENT_URI;
+					Uri base = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
 					Uri newUri = contentResolver.insert(base, content);
 			       
 					if(newUri == null){

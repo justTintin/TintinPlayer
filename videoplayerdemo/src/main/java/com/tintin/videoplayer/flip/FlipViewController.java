@@ -31,6 +31,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewDebug;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -217,7 +218,7 @@ public class FlipViewController extends AdapterView<Adapter> {
   }
 
   /**
-   * @see #refreshPage(View)
+   * @see #refreshPage(android.view.View)
    */
   public void refreshPage(int pageIndex) {
     if (cards.refreshPage(pageIndex)) {
@@ -478,8 +479,8 @@ public class FlipViewController extends AdapterView<Adapter> {
     LayoutParams params = view.getLayoutParams();
     if (params == null) {
       params =
-          new AbsListView.LayoutParams(LayoutParams.MATCH_PARENT,
-                                       LayoutParams.WRAP_CONTENT, 0);
+          new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                                       ViewGroup.LayoutParams.WRAP_CONTENT, 0);
     }
 
     if (isReusedView) {

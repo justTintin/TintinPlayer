@@ -1,7 +1,9 @@
 package com.tintin.videoplayer;
 
+import com.tintin.videoplayer.R;
 import com.tintin.videoplayer.util.AppLog;
 import com.tintin.videoplayer.videofile.Video;
+
 
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnCompletionListener;

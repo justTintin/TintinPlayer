@@ -27,7 +27,7 @@ import java.lang.ref.WeakReference;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import static com.jwzhangjie.videoplayer.flip.FlipRenderer.checkError;
+import static com.tintin.videoplayer.flip.FlipRenderer.checkError;
 
 public class ViewDualCards {
 

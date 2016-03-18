@@ -1,4 +1,4 @@
-package com.tintin.videoplayer.circlemenu.view;
+package com.tintin.videoplayer.view;
 
 import com.tintin.videoplayer.R;
 

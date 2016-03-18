@@ -4,6 +4,7 @@ package com.tintin.videoplayer;
 
 import java.util.List;
 
+import com.tintin.videoplayer.R;
 import com.tintin.videoplayer.adapter.JieVideoListViewAdapter;
 import com.tintin.videoplayer.component.LoadedImage;
 import com.tintin.videoplayer.videofile.AbstructProvider;

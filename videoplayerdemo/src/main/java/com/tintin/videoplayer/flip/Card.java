@@ -29,6 +29,8 @@ import static com.tintin.videoplayer.fliputils.TextureUtils.d2r;
 import static com.tintin.videoplayer.fliputils.TextureUtils.isValidTexture;
 import static com.tintin.videoplayer.fliputils.TextureUtils.toFloatBuffer;
 import static com.tintin.videoplayer.fliputils.TextureUtils.toShortBuffer;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 import static javax.microedition.khronos.opengles.GL10.GL_BACK;
 import static javax.microedition.khronos.opengles.GL10.GL_BLEND;
 import static javax.microedition.khronos.opengles.GL10.GL_CCW;
@@ -219,8 +221,8 @@ public class Card {
 
       if (axis == AXIS_TOP) {
         if (orientationVertical) {
-          h = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * (1.0f - Math.cos(d2r(angle))));
-          z = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * Math.sin(d2r(angle)));
+          h = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * (1.0f - cos(d2r(angle))));
+          z = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * sin(d2r(angle)));
           shadowVertices = new float[]{
               cardVertices[X_00], cardVertices[Y_01] + h, z,
               cardVertices[X_01], cardVertices[Y_01], 0f,
@@ -228,8 +230,8 @@ public class Card {
               cardVertices[X_10], cardVertices[Y_01] + h, z
           };
         } else { //horizontal
-          w = (float) ((cardVertices[X_10] - cardVertices[X_00]) * (1.0f - Math.cos(d2r(angle))));
-          z = (float) ((cardVertices[X_10] - cardVertices[X_00]) * Math.sin(d2r(angle)));
+          w = (float) ((cardVertices[X_10] - cardVertices[X_00]) * (1.0f - cos(d2r(angle))));
+          z = (float) ((cardVertices[X_10] - cardVertices[X_00]) * sin(d2r(angle)));
           shadowVertices = new float[]{
               cardVertices[X_10] - w, cardVertices[Y_00], z,
               cardVertices[X_11] - w, cardVertices[Y_01], z,
@@ -239,8 +241,8 @@ public class Card {
         }
       } else {
         if (orientationVertical) {
-          h = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * (1f - Math.cos(d2r(angle))));
-          z = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * Math.sin(d2r(angle)));
+          h = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * (1f - cos(d2r(angle))));
+          z = (float) ((cardVertices[Y_00] - cardVertices[Y_01]) * sin(d2r(angle)));
           shadowVertices = new float[]{
               cardVertices[X_00], cardVertices[Y_00], 0f,
               cardVertices[X_01], cardVertices[Y_00] - h, z,
@@ -248,8 +250,8 @@ public class Card {
               cardVertices[X_10], cardVertices[Y_00], 0f
           };
         } else { //horizontal
-          w = (float) ((cardVertices[X_10] - cardVertices[X_00]) * (1f - Math.cos(d2r(angle))));
-          z = (float) ((cardVertices[X_10] - cardVertices[X_00]) * Math.sin(d2r(angle)));
+          w = (float) ((cardVertices[X_10] - cardVertices[X_00]) * (1f - cos(d2r(angle))));
+          z = (float) ((cardVertices[X_10] - cardVertices[X_00]) * sin(d2r(angle)));
           shadowVertices = new float[]{
               cardVertices[X_00], cardVertices[Y_00], 0f,
               cardVertices[X_01], cardVertices[Y_01], 0f,
