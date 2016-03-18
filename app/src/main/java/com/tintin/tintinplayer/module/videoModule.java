@@ -8,6 +8,20 @@ import java.io.Serializable;
 public class VideoModule implements Serializable
 {
 
+    public int getId()
+    {
+        return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    private int id;
+
+    private String title;
+
     private String path;
 
     private String size;
@@ -21,6 +35,28 @@ public class VideoModule implements Serializable
     private String width;
 
     private String height;
+
+    private String mimeType;
+
+    public String getMimeType()
+    {
+        return mimeType;
+    }
+
+    public void setMimeType(String mimeType)
+    {
+        this.mimeType = mimeType;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
+    }
 
     public String getDisplayName()
     {

@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class FileOperateController
 {
+
     private static final String TAG = FileOperateController.class.getSimpleName();
 
     public static final String[] IMAGE_COLUMN = { MediaStore.Images.Media.DATA,
@@ -50,17 +51,21 @@ public class FileOperateController
             if (cursor.moveToFirst())
             {
                 VideoModule videoModule1 = new VideoModule();
+//                int id = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID));
                 String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
+//                String title = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.TITLE));
                 String size = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
                 String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
                 String display_name = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME));
                 String album = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.ALBUM));
                 String width = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.WIDTH));
                 String height = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.HEIGHT));
+//                String mimeType = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.MIME_TYPE));
                 //String thumbnail = Base64Util.bitmaptoString(getVideoThumbnail(path, 96, 96, MediaStore.Images.Thumbnails.MICRO_KIND));
                 //tp = tp+Base64Util.encodeBase64(path)+","+size+","+duration+","+thumbnail+"}";
                 //                tp = tp+ Base64Util.encodeBase64(path)+","+size+","+duration+"}";
-
+//                videoModule1.setId(id);
+//                videoModule1.setTitle(title);
                 videoModule1.setPath(path);
                 videoModule1.setDuration(duration);
                 videoModule1.setSize(size);
@@ -68,11 +73,14 @@ public class FileOperateController
                 videoModule1.setDisplayName(display_name);
                 videoModule1.setWidth(width);
                 videoModule1.setHeight(height);
-                Log.d("aaa", videoModule1.toString());
+//                videoModule1.setMimeType(mimeType);
+                Log.d(TAG, videoModule1.toString());
                 list.add(videoModule1);
                 while (cursor.moveToNext())
                 {
                     VideoModule videoModule = new VideoModule();
+//                    id = cursor.getInt(cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID));
+//                    title = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.TITLE));
                     path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
                     size = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));
                     duration = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));
@@ -80,8 +88,12 @@ public class FileOperateController
                     album = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.ALBUM));
                     width = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.WIDTH));
                     height = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.HEIGHT));
+//                    mimeType = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.MIME_TYPE));
+
                     //tp = tp+Base64Util.encodeBase64(path)+","+size+","+duration+","+thumbnail+"}";
                     //                    tp = tp+ Base64Util.encodeBase64(path)+","+size+","+duration+"}";
+//                    videoModule.setId(id);
+//                    videoModule.setTitle(title);
                     videoModule.setPath(path);
                     videoModule.setDuration(duration);
                     videoModule.setSize(size);
@@ -89,10 +101,12 @@ public class FileOperateController
                     videoModule.setDisplayName(display_name);
                     videoModule.setWidth(width);
                     videoModule.setHeight(height);
-                    Log.d("aaa", videoModule.toString());
+//                    videoModule.setMimeType(mimeType);
+                    Log.d(TAG, videoModule.toString());
                     list.add(videoModule);
                 }
             }
+            cursor.close();
         }
         return list;
     }
